@@ -23,3 +23,4 @@ To launch the website locally in VS Code:
 4. The website should open in your preferred browser with the same functionality (Hopefully)
 
 Written by: Josh Makela
+Code written by: Dr. Laura Taalman
