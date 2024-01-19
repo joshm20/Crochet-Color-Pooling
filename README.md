@@ -1,4 +1,16 @@
-# Crochet-Color-Pooling
+# Crochet Color Pooling
+Crochet Color Pooling is a public repository made for experimenting with the source code of the Chrochet Color Pooling website.
+Access the original website by Dr. Laura Taalman [here.](https://mathgrrl.com/crochet-color-pooling/)
+
+# Recommended things to do:
+
+- Display fraction being used on the screen (Easy)
+- Add sum for total number of stitches (Easy)
+- Allow user to choose between different fractions and +/- 1, eliminate undefined error
+- Reverse input for number of stitches and distribute into different. (Hard)
+  
+
+# Environment Setup
 I recommended using VS Code as your code editor. You can download VS Code here: https://code.visualstudio.com/download
 
 To use this and add changes, you need to download Git, a source code manager for projects. If you don't know, Git manages different users working asynchronously, timelines of changes, and so much more. Use this page to download Git: https://git-scm.com/downloads
@@ -23,4 +35,5 @@ To launch the website locally in VS Code:
 4. The website should open in your preferred browser with the same functionality (Hopefully)
 
 Written by: Josh Makela
+
 Code written by: Dr. Laura Taalman
