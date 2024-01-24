@@ -30,7 +30,7 @@ t = 55;
 
 // preload font
 function preload() {
-    titleFont = loadFont("fonts/Baloo2-ExtraBold.ttf");
+    titleFont = loadFont("../fonts/Baloo2-ExtraBold.ttf");
 }
 
 // SETUP //////////////////////////////////////////////
@@ -93,8 +93,8 @@ function draw() {
     for (i = 0; i < numberOfCells; i++) {
 
         // calculate position and color of i-th rectangle
-        x = findCoordinates(i).x;
-        y = findCoordinates(i).y;
+        x = findCoordinatesXY(i, 500, 500).x;
+        y = findCoordinatesXY(i, 500, 500).y;
         colorIndex = findColorIndex(i);
 
         // draw the rectangle
