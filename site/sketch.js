@@ -13,11 +13,11 @@
 // from yarn info in yarns.js
 magicInitial = yarns[0].magic;
 colorsInitial = yarns[0].colors;
-clusters = yarns[0].clusters; 
+clusters = yarns[0].clusters;
 numberOfColors = yarns[0].colors.length;
 
 // initial values
-gauge = 2; 
+gauge = 2;
 focusRow = 1;
 focus = false;
 staggered = true;
@@ -36,31 +36,31 @@ function preload() {
 // SETUP //////////////////////////////////////////////
 
 function setup() {
-  
+
   createCanvas(1230, 920);
   background(255);
   noLoop();
-  
+
   // --------------------------------------------------
   // set up region sizes to fill canvas
-  
+
   topMargin = 140;
   patternMargin = 65;
-  sideIndent = 60; 
+  sideIndent = 60;
   verticalGap = 80;
-  
+
   controlWidth = 320;
-  controlHeight = height-topMargin;
-  
-  colorsWidth = width-controlWidth-2*patternMargin;
+  controlHeight = height - topMargin;
+
+  colorsWidth = width - controlWidth - 2 * patternMargin;
   colorsHeight = 100;
-  
+
   patternWidth = colorsWidth;
-  patternHeight = controlHeight-colorsHeight;
+  patternHeight = controlHeight - colorsHeight;
 
   // --------------------------------------------------
   // create user interfaces with gui.js
-  
+
   createGUI_magic();
   createGUI_colors();
   createGUI_clusters();
@@ -74,16 +74,17 @@ function setup() {
 // DRAW ///////////////////////////////////////////////
 
 function draw() {
-  
+
   // --------------------------------------------------
   // redraw background only width of pattern and pattern margin
   fill(255);
   noStroke();
-  rect(controlWidth, 0, 2*patternMargin + patternWidth, height);
-  
+  rect(controlWidth, 0, 2 * patternMargin + patternWidth, height);
+
+
   // --------------------------------------------------
   // calculations from calc.js
-  
+
   xSize = rectangleSize().xSize;
   ySize = rectangleSize().ySize;
   rowCount = rectangleSize().rowCount;
@@ -92,8 +93,8 @@ function draw() {
 
   // --------------------------------------------------
   // draw rectangles snaking up from bottom right
-  for (i=0; i<numberOfCells; i++) {
-    
+  for (i = 0; i < numberOfCells; i++) {
+
     // calculate position and color of i-th rectangle
     x = findCoordinates(i).x;
     y = findCoordinates(i).y;
@@ -101,66 +102,66 @@ function draw() {
 
     // draw the rectangle
     stroke(250);
-    strokeWeight(0.06*xSize);
+    strokeWeight(0.06 * xSize);
     if (!borders) noStroke();
     fill(colors[colorIndex].value());
-    rect(x,y,xSize,ySize);
+    rect(x, y, xSize, ySize);
 
-    if (debug) showCellNumbers(i,x,y);
-    
+    if (debug) showCellNumbers(i, x, y);
+
     // gray out all but one row if in focus mode
     if (focus && (currentRow !== int(focusRow))) {
-      fill(255,255,255,200);
-      rect(x,y,xSize,ySize);
+      fill(255, 255, 255, 200);
+      rect(x, y, xSize, ySize);
     }
   }
-  
+
   // --------------------------------------------------
   // text and decorations from decor.js
-  
-  if (frameCount==1) redraw(); // cheap font pre-load
-  
+
+  if (frameCount == 1) redraw(); // cheap font pre-load
+
   drawTitleAndHeader();
   drawQuickNotes();
   drawKeyboardShortcutsList();
-  
-  drawArrowAtRow(1); 
-  drawArrowAtRow(2); 
-  drawArrowAtRow(3); 
+
+  drawArrowAtRow(1);
+  drawArrowAtRow(2);
+  drawArrowAtRow(3);
   //if (focus) drawArrowAtRow(focusRow, "bold");
   drawArrowAtRow(focusRow, "bold");
-  
+
   // --------------------------------------------------
   // debug 
-  
+
   if (debug) showRegionOutlines();
 
 }
 
 // KEYBOARD ACTIONS ///////////////////////////////////
 
-function keyPressed() {  
-  
+function keyPressed() {
+
   // --------------------------------------------------
   // up/down through focus rows
-  
+
   if (keyCode === UP_ARROW) {
-    if (focusRow < numberOfCells/clusters - 2) {
+    if (focusRow < numberOfCells / clusters - 2) {
       focusInput.value(int(focusRow) + 1);
       updateFocusValue();
     }
   }
-  
+
   if (keyCode === DOWN_ARROW) {
     if (focusRow > 1) {
       focusInput.value(int(focusRow) - 1);
       updateFocusValue();
     }
   }
-  
+
   // --------------------------------------------------
   // right/left through cluster counts
-  
+
   if (keyCode === RIGHT_ARROW) {
     if (int(clusters) < int(clustersSlider.elt.max)) {
       clustersInput.value(int(clusters) + 1);
@@ -174,23 +175,23 @@ function keyPressed() {
       updateClustersSlider();
     }
   }
-  
+
   // --------------------------------------------------
   //  toggle borders
-  
+
   if (key == "b") {
     borders = !borders;
     redraw();
   }
-  
+
   // --------------------------------------------------
   //  cycle nonzero colors to get new starting color
-  
+
   if (key == "c") cycleColors();
-  
+
   // --------------------------------------------------
   //  randomize colors and numbers
-  
+
   if (key == "r") {
     randomizeMagicAndColors();
     yarnSelect.value("Random (press r for more)");
@@ -202,37 +203,37 @@ function keyPressed() {
   // overall total stays the same so cluster value will still be good
 
   if (key == "f") shuffleColors();
-  
+
   // --------------------------------------------------
   //  glitch it!
-  
+
   if (key == "g") {
     // todo
   }
-                 
+
   // --------------------------------------------------
   //  export PNG screenshot of pattern with params in filename
-  
-  if (key == "s") {   
-    img = get(controlWidth+patternMargin, topMargin, 
-              patternWidth, patternHeight-ySize/2);
+
+  if (key == "s") {
+    img = get(controlWidth + patternMargin, topMargin,
+      patternWidth, patternHeight - ySize / 2);
     paramString = getFileName(magic, clusters);
     img.save(paramString);
-    console.log("saved pattern image:", paramString+".png");
+    console.log("saved pattern image:", paramString + ".png");
   }
-  
+
   // --------------------------------------------------
   //  export TXT file with complete crochet pattern
-  
+
   if (key == "p") {
     paramString = getFileName(magic, clusters);
     pattern = createWriter(paramString + '.txt');
-    
+
     getPatternText(); // stored in patterns.js
-    
+
     pattern.write(patternText);
     pattern.close();
-    console.log("saved crochet pattern:", paramString+".txt");
+    console.log("saved crochet pattern:", paramString + ".txt");
   }
 
 }
