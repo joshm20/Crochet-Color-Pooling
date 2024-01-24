@@ -1,5 +1,5 @@
 # Crochet Color Pooling
-Crochet Color Pooling is a public repository made for experimenting with the source code of the Chrochet Color Pooling website.
+Crochet Color Pooling is a public repository made for experimenting with the source code of the Crochet Color Pooling website.
 Access the original website by Dr. Laura Taalman [here.](https://mathgrrl.com/crochet-color-pooling/)
 
 # Recommended things to do:
