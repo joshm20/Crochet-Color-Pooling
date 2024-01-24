@@ -10,7 +10,9 @@ function createGUI_yarn() {
   fill(150);
   textFont("Helvetica");
   textSize(16);
-  text("Choose a yarn, type of stitch, and direction of work. You can also enter your own colors and magic stitch counts below, or press \"r\" for random colors and numbers. ", sideIndent, yPos, controlWidth - sideIndent);
+  text("Choose a yarn, type of stitch, and direction of work. You can also enter your own" +
+    "colors and magic stitch counts below, or press \"r\" for random colors and numbers. ",
+    sideIndent, yPos, controlWidth - sideIndent);
 
   fill(100);
   textFont("Helvetica");
@@ -214,55 +216,16 @@ function toggleFocus() {
 // magic values - text input
 
 function createGUI_magic() {
-  magic = [];
-  for (j = 0; j < numberOfColors; j++) {
-    console.log("here");
-    magic[j] = createInput(magicInitial[j]);
-    magic[j].size(40);
-    magic[j].position(controlWidth + patternMargin + 61 * j,
-      topMargin + patternHeight + 25);
-    magic[j].changed(updateAfterMagicChange);
-  }
-
-
-}
-
-function updateAfterMagicChange() {
-  yarnSelect.value("Custom (make your own)");
-  redraw();
-}
-
-// ----------------------------------------------------
-// color pickers
-
-function createGUI_colors() {
-  colors = [];
-  for (j = 0; j < numberOfColors; j++) {
-    colors[j] = createColorPicker(colorsInitial[j]);
-    colors[j].position(controlWidth + patternMargin + 61 * j,
-      topMargin + patternHeight + 55);
-    colors[j].changed(updateAfterColorsChange);
-  }
-}
-
-function updateAfterColorsChange() {
-  yarnSelect.value("Custom (make your own)");
-  redraw();
-}
-
-// ----------------------------------------------------
-// magic values - text input
-
-function createGUI_magic() {
-  magic = [];
+  magic = []; // Array of number of yarn color stitches
   for (j = 0; j < numberOfColors; j++) {
     magic[j] = createInput(magicInitial[j]);
     magic[j].size(40);
     magic[j].position(controlWidth + patternMargin + 61 * j,
-      topMargin + patternHeight + 25);
+      topMargin);
     magic[j].changed(updateAfterMagicChange);
-    console.log("here");
   }
+
+
 }
 
 function updateAfterMagicChange() {

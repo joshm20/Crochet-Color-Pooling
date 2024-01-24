@@ -16,10 +16,42 @@ function rectangleSize() {
     return { xSize, ySize, rowCount };
 }
 
+/**
+ * Paramaterized version of rectangleSize, intended for drawQuilt
+ * @param {number} clusters 
+ * @returns Size of rectangles and number of rows for pattern
+ */
+function rectangleSize_cluster(clusters) {
+    if (staggered) {
+        var xSize = patternWidth / (2 * clusters);
+        var ySize = xSize * gauge;
+        var rowCount = floor(2 * patternHeight / ySize) + 1;
+    } else {
+        var xSize = patternWidth / clusters;
+        var ySize = xSize * gauge;
+        var rowCount = floor(patternHeight / ySize);
+    }
+    return { xSize, ySize, rowCount };
+}
+
 // ----------------------------------------------------
 // number of rectangles to draw 
 
 function rectangleCount() {
+    if (staggered) {
+        numberOfCells = (rowCount) * clusters;
+    } else {
+        numberOfCells = rowCount * clusters;
+    }
+    return numberOfCells;
+}
+
+/**
+ * Paramaterized version of rectangleCount, intended for drawQuilt
+ * @param {number} clusters 
+ * @returns number of cells in the quilt/pattern 
+ */
+function rectangleCount_clusters(clusters) {
     if (staggered) {
         numberOfCells = (rowCount) * clusters;
     } else {

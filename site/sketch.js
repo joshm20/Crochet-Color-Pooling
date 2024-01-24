@@ -55,8 +55,8 @@ function setup() {
   colorsWidth = width - controlWidth - 2 * patternMargin;
   colorsHeight = 100;
 
-  patternWidth = 300;//colorsWidth;
-  patternHeight = 300;//controlHeight - colorsHeight;
+  patternWidth = colorsWidth;
+  patternHeight = controlHeight - colorsHeight;
 
   // --------------------------------------------------
   // create user interfaces with gui.js

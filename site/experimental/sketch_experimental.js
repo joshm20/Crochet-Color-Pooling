@@ -63,7 +63,7 @@ function setup() {
     createGUI_clusters();
     createGUI_stitch();
     createGUI_direction();
-    createGUI_focus();
+    // createGUI_focus();
     createGUI_yarn();
 
 }
@@ -93,8 +93,8 @@ function draw() {
     for (i = 0; i < numberOfCells; i++) {
 
         // calculate position and color of i-th rectangle
-        x = findCoordinatesXY(i, 500, 500).x;
-        y = findCoordinatesXY(i, 500, 500).y;
+        x = findCoordinates(i).x;
+        y = findCoordinates(i).y;
         colorIndex = findColorIndex(i);
 
         // draw the rectangle
@@ -122,18 +122,23 @@ function draw() {
     drawQuickNotes();
     drawKeyboardShortcutsList();
 
-    drawArrowAtRow(1);
-    drawArrowAtRow(2);
-    drawArrowAtRow(3);
+    // drawArrowAtRow(1);
+    // drawArrowAtRow(2);
+    // drawArrowAtRow(3);
     //if (focus) drawArrowAtRow(focusRow, "bold");
-    drawArrowAtRow(focusRow, "bold");
+    // drawArrowAtRow(focusRow, "bold");
 
     // --------------------------------------------------
-    // debug 
-
+    // debug = true;
     if (debug) showRegionOutlines();
 
 }
+
+
+function drawQuilt(x, y, clusters) {
+
+}
+
 
 // KEYBOARD ACTIONS ///////////////////////////////////
 

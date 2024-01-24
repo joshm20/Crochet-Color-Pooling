@@ -49,10 +49,10 @@ function drawKeyboardShortcutsList() {
     textFont("Helvetica");
     textSize(14);
     textStyle(NORMAL);
-    text("b = toggle borders", sideIndent, height - 86);
-    text("c = cycle starting color", sideIndent, height - 64);
-    text("s = download screenshot of image", sideIndent, height - 42);
-    text("p = download written crochet pattern", sideIndent, height - 20);
+    text("b = toggle borders", sideIndent, topMargin + 500);
+    text("c = cycle starting color", sideIndent, topMargin + 520);
+    text("s = download screenshot of image", sideIndent, topMargin + 540);
+    text("p = download written crochet pattern", sideIndent, topMargin + 560);
 }
 
 // ----------------------------------------------------
