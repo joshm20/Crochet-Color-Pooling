@@ -123,7 +123,7 @@ function drawMagicSum() {
   magicTotal = magicSumTotal();
   textStyle(BOLD);
   fill('#000000'); // Black
-  text("Sum: " + magicTotal, controlWidth + patternMargin + 61 * j, topMargin + patternHeight + 40);
+  text("Sum: " + magicTotal, controlWidth, topMargin + patternHeight + 40);
 }
 
 
