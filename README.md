@@ -5,7 +5,6 @@ Access the original website by Dr. Laura Taalman [here.](https://mathgrrl.com/cr
 # Recommended things to do:
 
 - Display fraction being used on the screen (Easy)
-- Add sum for total number of stitches (Easy)
 - Allow user to choose between different fractions and +/- 1, eliminate undefined error
 - Reverse input for number of stitches and distribute into different. (Hard)
   
