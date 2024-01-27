@@ -121,6 +121,8 @@ function draw() {
     drawTitleAndHeader();
     drawQuickNotes();
     drawKeyboardShortcutsList();
+    magicTotal = magicSumTotal();
+    text("Sum: " + magicTotal, controlWidth + patternMargin + 61 * j, topMargin + 18);
 
     // drawArrowAtRow(1);
     // drawArrowAtRow(2);

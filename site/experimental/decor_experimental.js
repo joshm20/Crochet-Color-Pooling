@@ -36,9 +36,9 @@ function drawQuickNotes() {
     textFont("Helvetica");
     textSize(14);
     textStyle(ITALIC);
-    text("Just want to see pretty patterns?", width - 430, 70);
-    text("Press \"r\" for random colors, then \"f\" to shuffle those colors.", width - 430, 90);
-    text("Then play with the clusters slider!", width - 430, 110);
+    text("Just want to see pretty patterns?", 700, 70);
+    text("Press \"r\" for random colors, then \"f\" to shuffle those colors.", 700, 90);
+    text("Then play with the clusters slider!", 700, 110);
 }
 
 // ----------------------------------------------------

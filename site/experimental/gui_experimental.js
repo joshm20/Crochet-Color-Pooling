@@ -217,14 +217,14 @@ function toggleFocus() {
 
 function createGUI_magic() {
   magic = []; // Array of number of yarn color stitches
-  for (j = 0; j < numberOfColors; j++) {
+  let j = 0;
+  for (; j < numberOfColors; j++) {
     magic[j] = createInput(magicInitial[j]);
     magic[j].size(40);
     magic[j].position(controlWidth + patternMargin + 61 * j,
       topMargin);
     magic[j].changed(updateAfterMagicChange);
   }
-
 
 }
 

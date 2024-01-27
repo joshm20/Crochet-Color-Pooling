@@ -157,6 +157,16 @@ function magicSumsList() {
     return magicSums;
 }
 
+// Total sum of magic
+function magicSumTotal() {
+    magicTotal = 0;
+    for (i = 0; i < numberOfColors; i++) {
+        magicTotal += int(magic[i].value());
+    }
+
+    return magicTotal;
+}
+
 // ----------------------------------------------------
 // color of i-th rectangle
 

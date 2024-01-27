@@ -124,6 +124,7 @@ function draw() {
   drawTitleAndHeader();
   drawQuickNotes();
   drawKeyboardShortcutsList();
+  drawMagicSum();
 
   drawArrowAtRow(1);
   drawArrowAtRow(2);
