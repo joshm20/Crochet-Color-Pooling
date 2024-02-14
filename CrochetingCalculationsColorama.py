@@ -16,7 +16,7 @@ def grid_generator(stitches, num_rows, clusters):
     Returns:
         list: The grid
     """
-    grid = []
+    grid = [] # List of 2-tuples (row num, row[])
     row_indicator = 1
     stitches_length = len(stitches)
     i = 0
@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
     num_mode_list = [1, 2, 3, 4, 5, 6, 7]
 
-    grid = grid_generator(red_heart_shaded_dusk, 100, 20)
+    grid = grid_generator(impeccable_leaves, 100, 20) # Change first parameter to change pattern S = {s_1, s_2...}
 
     # Delete the triple quotes at the beginning and end to print a formatted grid
     """for row_indicator, row in grid:
